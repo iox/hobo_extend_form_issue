@@ -1,0 +1,15 @@
+<!-- this file is included by front_site.dryml, admin_site.dryml et al, so
+you can place common code in this file. -->
+
+
+<extend tag="form" for="Agent">
+  <old-form merge multipart>
+    <field-list fields="name, front_index, website_name, website_url, email, cell_phone, land_phone, yada,  default_agent, inactive, rentals, residential, commercial, income, vacant_land, html_name,lead_rotation_index, region" param/>
+    <img src="data:image/jpeg;charset=utf-8;base64,#{this.photo.url}" height="100"/>
+    <%= file_field_tag 'photo' %>
+
+    <div param="actions">
+      <submit label="#{ht 'agent.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </old-form>
+</extend> 
